@@ -12,6 +12,7 @@
       color: white;
       text-align: center;
       padding: 2em;
+      overflow: hidden;
     }
     .popup {
       position: fixed;
@@ -44,7 +45,62 @@
       max-width: 500px;
       border-radius: 10px;
     }
-  </style>
+    .spotify {
+      margin-top: 40px;
+    }
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: white;
+      animation: shooting 4s linear infinite;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+    }
+
+    @keyframes shooting {
+      0% {
+        transform: translate(-200px, -200px) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(100vw, 100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  
+    .slider {
+      margin-top: 40px;
+    }
+    .slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    .slides figure {
+      flex: none;
+      width: 250px;
+      scroll-snap-align: start;
+      margin: 0;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .slides figcaption {
+      color: #fff;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+</style>
   <script>
     window.onload = function () {
       const pw = prompt("Masukkan password:");
@@ -53,7 +109,6 @@
         document.body.innerHTML = "";
         return;
       }
-
       document.getElementById("popup").style.display = "flex";
     }
 
@@ -66,6 +121,8 @@
   </script>
 </head>
 <body>
+  <div class="shooting-star"></div>
+
   <div id="popup" class="popup">
     <div class="popup-content">
       <p>Dengarkan pesan rahasia dari dia 💌</p>
@@ -84,7 +141,36 @@
       <source src="assets/love-voice-note.mp3" type="audio/mpeg" />
     </audio>
   </div>
+
+  <div class="spotify">
+    <h2>Playlist Versi Bahasa Inggris</h2>
+    <div style="width: 100%; max-width: 500px; margin: auto;">
+      <iframe src="https://open.spotify.com/embed/playlist/4MTpMq5uwv50gHytc9FTsF?utm_source=oembed"
+        style="width: 100%; height: 352px; border: none;"
+        allowfullscreen
+        allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
+    <h2>Playlist Versi Bahasa Indonesia</h2>
+    <div style="width: 100%; max-width: 500px; margin: auto;">
+      <iframe src="https://open.spotify.com/embed/playlist/6nUxfwZAo6mzFfylNcyEAt?utm_source=oembed"
+        style="width: 100%; height: 352px; border: none;"
+        allowfullscreen
+        allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="slider">
+    <h2>Galeri Cewekku</h2>
+    <div class="slides">
+      <figure><img src="assets/IMG-20250619-WA0012.jpg" alt="cantik"><figcaption>Cantik</figcaption></figure>
+      <figure><img src="assets/IMG-20250619-WA0013.jpg" alt="manis"><figcaption>Manis</figcaption></figure>
+      <figure><img src="assets/IMG-20250619-WA0014.jpg" alt="imut"><figcaption>Imut</figcaption></figure>
+      <figure><img src="assets/IMG-20250619-WA0015.jpg" alt="lucu"><figcaption>Lucu</figcaption></figure>
+      <figure><img src="assets/IMG-20250619-WA0016.jpg" alt="sempurna"><figcaption>Sempurna</figcaption></figure>
+    </div>
+  </div>
+
 </body>
 </html>
-
-Initial commit: halaman untuk perempuanku 
